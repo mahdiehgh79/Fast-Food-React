@@ -1,3 +1,6 @@
+import PropTypes from "prop-types";
+import formatCurrency from "./formatCurrency";
+
 function OrderItem({ item, isLoadingIngredients, ingredients }) {
   const { quantity, name, totalPrice } = item;
 
@@ -8,9 +11,20 @@ function OrderItem({ item, isLoadingIngredients, ingredients }) {
           <span>{quantity}&times;</span> {name}
         </p>
         <p>{formatCurrency(totalPrice)}</p>
+        {isLoadingIngredients && <p>Loading ingredients...</p>}
       </div>
     </li>
   );
 }
+
+OrderItem.propTypes = {
+  item: PropTypes.shape({
+    quantity: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+  }).isRequired,
+  isLoadingIngredients: PropTypes.bool,
+  ingredients: PropTypes.array,
+};
 
 export default OrderItem;
