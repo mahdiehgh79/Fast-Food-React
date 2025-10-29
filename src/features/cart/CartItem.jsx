@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { formatCurrency } from '../../../../../ultimate-react-course-main/ultimate-react-course-main/16-fast-react-pizza/final-1-after-tailwind/src/utils/helpers';
+import { formatCurrency } from '../../utils/helpers';
 
 function CartItem({ item }) {
   const { name, quantity, totalPrice } = item;
